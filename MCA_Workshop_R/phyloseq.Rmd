@@ -11,12 +11,12 @@ output:
 The phyloseq package is fast becoming a good way a managing micobial community data, filtering and visualizing that data and performing analysis such as ordination. Along with the standard R environment and packages vegan and vegetarian you can perform virually any analysis. Today we will
 
 1. Install R packages
-2  Load data straight from dbcAmplicons (biom file)
+2.  Load data straight from dbcAmplicons (biom file)
 3. Filter out Phylum
 4. Filter out additional Taxa
 5. Filter out samples
 6. Graphical Summaries
-7. Ordination 
+7. Ordination
 8. Differential Abundances
 
 ## installation from bioconductor
@@ -109,7 +109,7 @@ s16sV1V3.1
 
 ### Individual Taxa Filtering
 
-Subset to the remaining phyla by prevelance. 
+Subset to the remaining phyla by prevelance.
 ```{r}
 prevelancedf1 = subset(prevelancedf, Phylum %in% get_taxa_unique(s16sV1V3.1, taxonomic.rank = "Phylum"))
 ggplot(prevelancedf1, aes(TotalAbundance,Prevalence / nsamples(s16sV1V3.1),color=Phylum)) +
@@ -149,10 +149,10 @@ Do some simple ordination looking for outlier samples, first we variance stabili
 logt  = transform_sample_counts(s16sV1V3.3, function(x) log(1 + x) )
 out.pcoa.logt <- ordinate(logt, method = "PCoA", distance = "bray")
 evals <- out.pcoa.logt$values$Eigenvalues
-plot_ordination(logt, out.pcoa.logt, type = "samples", 
+plot_ordination(logt, out.pcoa.logt, type = "samples",
                 color = "Slash_pile_number", shape = "Depth_cm") + labs(col = "Slash pile number") +
   coord_fixed(sqrt(evals[2] / evals[1]))
-plot_ordination(logt, out.pcoa.logt, type = "species", color = "Phylum") 
+plot_ordination(logt, out.pcoa.logt, type = "species", color = "Phylum")
   coord_fixed(sqrt(evals[2] / evals[1]))
 out.pcoa.logt$vectors[,1:2]
 
@@ -161,7 +161,7 @@ out.pcoa.logt$vectors[,1:2]
 You could also use the MDS method of ordination here, edit the code to do so. Can also edit the distance method used to jaccard, jsd, euclidean. Play with changing those parameters
 
 ```{r, eval=FALSE}
-#Can view the distance method options with 
+#Can view the distance method options with
 ?distanceMethodList
 
 # can veiw the oridinate methods with
@@ -274,7 +274,7 @@ v4.hell.ord <- ordinate(s16sV1V3.4hell, "NMDS", "bray")
 p1 = plot_ordination(s16sV1V3.4hell, v4.hell.ord, type="taxa", color="Phylum", title="taxa")
 print(p1)
 p1 + facet_wrap(~Phylum, 5)
-p2 = plot_ordination(s16sV1V3.4hell, v4.hell.ord, type="samples", color="Depth_cm", shape="Slash_pile_number") 
+p2 = plot_ordination(s16sV1V3.4hell, v4.hell.ord, type="samples", color="Depth_cm", shape="Slash_pile_number")
 #p2 + geom_polygon(aes(fill=Slash_pile_number)) + geom_point(size=5) + ggtitle("samples")
 p2
 
@@ -297,7 +297,7 @@ m = m + 1
 taxonomy = tax_table(s16sV1V3.4, errorIfNULL=FALSE)
 if( !is.null(taxonomy) ){
   taxonomy = data.frame(as(taxonomy, "matrix"))
-} 
+}
 # Now turn into a DGEList
 d = DGEList(counts=m, genes=taxonomy, remove.zeros = TRUE)
 
@@ -331,7 +331,7 @@ length(which(tmp2$adj.P.Val < 0.05)) # number of Differentially abundant taxa
 # 0
 sigtab = cbind(as(tmp2, "data.frame"), as(tax_table(s16sV1V3.4)[rownames(tmp2), ], "matrix"))
 
-## One last plot 
+## One last plot
 theme_set(theme_bw())
 scale_fill_discrete <- function(palname = "Set1", ...) {
     scale_fill_brewer(palette = palname, ...)
@@ -345,7 +345,7 @@ sigtabgen$Phylum = factor(as.character(sigtabgen$Phylum), levels = names(x))
 x = tapply(sigtabgen$logFC, sigtabgen$Genus, function(x) max(x))
 x = sort(x, TRUE)
 sigtabgen$Genus = factor(as.character(sigtabgen$Genus), levels = names(x))
-ggplot(sigtabgen, aes(x = Genus, y = logFC, color = Phylum)) + geom_point(size=6) + 
+ggplot(sigtabgen, aes(x = Genus, y = logFC, color = Phylum)) + geom_point(size=6) +
   theme(axis.text.x = element_text(angle = -90, hjust = 0, vjust = 0.5))
 
 ```
