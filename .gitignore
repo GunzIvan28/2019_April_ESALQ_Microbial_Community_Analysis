@@ -1,0 +1,35 @@
+# build
+dist/
+build/
+
+# Python egg
+*.egg-info
+
+# Object files
+*.o
+*.ko
+*.pyc
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.Rproj.user
+._DS_Store
+.DS_Store
+.Rhistory
+.RData
+*.Rproj
+*sublime-workspace
+*.sublime-project

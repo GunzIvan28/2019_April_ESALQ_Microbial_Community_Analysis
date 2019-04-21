@@ -1,1 +1,6 @@
 theme: jekyll-theme-cayman
+title: 'UC Davis Bioinformatics Core April 2019 MCA Workshop @ ESALQ'
+tagline: 'April 22nd-25nd, 2018'
+name: 'UC Davis Bioinformatics Core April 2019 MCA Workshop @ ESALQ'
+github:
+  repository_url: https://ucdavis-bioinformatics-training.github.io/2019_April_ESALQ_Microbial_Community_Analysis/
