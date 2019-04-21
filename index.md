@@ -34,6 +34,8 @@ title: April 2019 Microbial Community Analysis Workshop Home
 * [Intro to R](intro2R/Intro2R.md)
 
 ## Microbial Community Analysis in R
+* [MCA Analysis in phyloseq](MCA_Workshop_R/phyloseq.md)
+  * [phyloseq.Rmd](MCA_Workshop_R/phyloseq.Rmd)
 
 [Closing thoughts](closing.md)
 
