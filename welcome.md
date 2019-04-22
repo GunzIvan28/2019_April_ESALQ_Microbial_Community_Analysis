@@ -56,9 +56,14 @@ Course will be conducted using the Bioinformatics Core's servers and compute clu
 Everyone should get an account.  
 https://computing.genomecenter.ucdavis.edu	 
 
-Request an account -> sponsor "Bioinformatics Core Workshop"
-
-If you already have an account on our systems, then please tell us your username.
+1. Request an account -> sponsor "Bioinformatics Core Workshop".
+  *  Fill in the remainder of the information, select any username you wish
+  *  If you already have an account on our systems, then please tell us your username.
+2. Confirm your email address in your email application
+3. I will need to approve your account.
+4. You will get an email to set your password
+5. Test your account, in terminal ssh yourusername@tabpole.genomecenter.ucdavis.edu
+  * Use the username you chose.
 
 Cluster usage will be under the slurm reservation  ‘workshop’
 
