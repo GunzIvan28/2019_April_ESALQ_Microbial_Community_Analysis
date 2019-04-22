@@ -69,7 +69,7 @@ Cluster usage will be under the slurm reservation  ‘workshop’
 
 Reservation will last 1 full week.
 
-**workshop       ACTIVE  2019-04-022  2019-04-28
+**workshop       ACTIVE  2019-04-22  2019-04-28
 
 <!-- Lunchs?
 ## Industry Sponsor Lunch and Learns
