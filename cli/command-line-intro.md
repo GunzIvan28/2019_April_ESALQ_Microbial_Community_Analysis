@@ -290,6 +290,10 @@ Here -r = recursively remove sub-directories, -f means *force*. We actually want
 
 Obviously, be careful with 'rm -rf', there is no going back, if you delete something with rm, rmdir its gone!
 
+Now that we've deleted it, lets extract it again.
+
+    tar -xzvf PhiX_Illumina_RTA.tar.gz  #
+
 
 ## BASH Wildcard Characters
 
