@@ -62,7 +62,7 @@ https://computing.genomecenter.ucdavis.edu
 2. Confirm your email address in your email application
 3. I will need to approve your account.
 4. You will get an email to set your password
-5. Test your account, in terminal ssh yourusername@tabpole.genomecenter.ucdavis.edu
+5. Test your account, in terminal ssh yourusername@tadpole.genomecenter.ucdavis.edu
   * Use the username you chose.
 
 Cluster usage will be under the slurm reservation  ‘workshop’
