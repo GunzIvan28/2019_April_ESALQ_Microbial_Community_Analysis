@@ -87,7 +87,7 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 using your favorite text editor, (nano?), add the lines
 
 module load java/jdk1.8
-export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools
+export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools 
 
 to ~/\.bash_profile, then source it
 
@@ -111,7 +111,7 @@ If you already have pip, or having installed it using above, then
 using your favorite text editor, _nano_ is simple, add the lines
 
 module load anaconda2
-source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate 
+source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate
 
 to a file named ~/\.bash_profile, then source it
 
