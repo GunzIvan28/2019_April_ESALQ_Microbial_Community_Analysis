@@ -105,8 +105,8 @@ If you already have pip, or having installed it using above, then
 
 	cd /share/workshop/$USER/mca_example/src
 	virtualenv dbcA_virtualenv
-  easy_install pip
-  pip install biom_format
+	easy_install pip
+	pip install biom_format
 
 **5\.b** This lets you set the virtual environment to activate on login by adding it to our \.bash_profile
 
@@ -136,8 +136,8 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 
 You could also test the dbcAmplicons installation by running the script, test_dbAmplicons.sh, under the tests folder (in dbcAmplicions).
 
-  cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
-  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
+	cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
+	./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
 
 ---
 
