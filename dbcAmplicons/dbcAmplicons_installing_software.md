@@ -110,8 +110,8 @@ If you already have pip, or having installed it using above, then
 
 using your favorite text editor, _nano_ is simple, add the lines
 
-  module load anaconda2
-	source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate
+module load anaconda2
+source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate 
 
 to a file named ~/\.bash_profile, then source it
 
