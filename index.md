@@ -14,7 +14,7 @@ title: April 2019 Microbial Community Analysis Workshop Home
 * [Running jobs on the Cluster and using modules](cli/cluster.md)
 
 
-[Experimental Design and Cost Estimation](pdfs/MCA_ExperimentalDesign.pdf) (talk)
+[Experimental Design and Cost Estimation](pdfs/MCA_Experimental_Design.pdf) (talk)
 
 ### dataset metadata
 * [sample submission](metadata/slashpilesamplesheet.xlsx)
