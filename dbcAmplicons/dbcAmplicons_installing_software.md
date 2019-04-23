@@ -23,12 +23,15 @@ optional
 **1\.** First, create a directory for the workshop in your home directory:
 
     cd /share/workshop/$USER/
-    mkdir mca_example
+
+Look at your prompt and make sure your in the right placed
+
+    mkdir /share/workshop/$USER/mca_example
 
 and two other directors
 
-	mkdir mca_example/src
-	mkdir mca_example/bin
+	mkdir /share/workshop/$USER/mca_example/src
+	mkdir /share/workshop/$USER/mca_example/bin
 
 **2\.** Now lets add the new bin directory to our PATH in a \.bash_profile file
 
@@ -46,7 +49,7 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 	cd /share/workshop/$USER/mca_example/src
 	git clone https://github.com/dstreett/FLASH2.git
-	cd FLASH2/
+	cd /share/workshop/$USER/FLASH2/
 	make
 	ln -s /share/workshop/$USER/mca_example/src/FLASH2/flash2 /share/workshop/$USER/mca_example/bin/.
 	# test installation, should see help documentation
@@ -61,7 +64,6 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 	curl http://mirrors.ibiblio.org/apache/ant/binaries/apache-ant-1.10.5-bin.tar.gz > apache-ant-1.10.5-bin.tar.gz
 	tar xzvf apache-ant-1.10.5-bin.tar.gz
 	ln -s /share/workshop/$USER/mca_example/src/apache-ant-1.10.5/bin/ant /share/workshop/$USER/mca_example/bin/.
-	cd ..
 
 **4\.b** Install the **Ribosomal Database Project** (RDP) into src
 
@@ -77,8 +79,7 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 	java -jar classifier.jar classify
 	# this should give you a "Command Error" because you didn\'t specify output
 	# ... but it should give you a list of options
-	# feel free to move on if the 'make' fails due to data.tgz file
-	cd ..
+	# feel free to move on if the 'make' fails due to data.tgz file, we can fix this later
 
 **4\.c** Add the location of classifier.jar as a variable in our \.bash_profile
 
@@ -94,6 +95,8 @@ to ~/\.bash_profile, then source it
 
 **5\.a** Setup a python virtual environment for dbcAmplicons, in the src directory. You may need to first install virtualenv and pip, pip can be installed following instructions from here [pip](https://pip.pypa.io/en/stable/installing/) and then:
 
+
+  cd /share/workshop/$USER/mca_example/src
 	pip install virtualenv
 
 If you already have pip, or having installed it using above, then
@@ -121,11 +124,10 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 	cd /share/workshop/$USER/mca_example/src
 	pip install biom-format
 	git clone https://github.com/msettles/dbcAmplicons.git
-	cd dbcAmplicons/
+	cd /share/workshop/$USER/mca_example/src/dbcAmplicons/
 	python setup.py install
 	# test installation, should see help documentation
 	dbcAmplicons -h  # should show options / usage message
-	cd ..
 
 **Optional\.** Test **dbcAmplicons**
 
@@ -160,13 +162,9 @@ You can check the current version of everything with
 
 We usually save the output of this in the project file to remind ourselves which versions of software were run for that project.
 
-If for some reason installation failed you can extract a copy from the workshop share
+If for some reason installation failed let me know and we'll get things fixed
 
-	cd
-	cd /share/workshop/$USER/mca_example
-	tar xzvf /share/biocore/workshops/2018_May_MCA/software.tar.gz
-
-You still need to set up the same environment variable in your \.bash_profile. These lines should be in your .bash_profile
+These lines should be in your .bash_profile
 
   export PATH=/share/workshop/$USER/mca_example/bin:$PATH  
   export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools  
@@ -178,6 +176,6 @@ You still need to set up the same environment variable in your \.bash_profile. T
 
   cd  
   cd /share/workshop/$USER/mca_example  
-  cp -r /share/biocore/workshops/2018_May_MCA/Illumina_Reads .  
+  cp -r /share/biocore/workshops/Workshop_MCA/Illumina_Reads .  
 
 Take a look at the files ... what is inside the Illumina_Reads folder?

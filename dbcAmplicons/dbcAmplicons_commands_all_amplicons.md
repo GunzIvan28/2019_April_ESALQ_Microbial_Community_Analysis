@@ -1,6 +1,16 @@
 Running the dbcAmplicons pipeline
 ===============================================
 
+This document assumes [dbcAmplicons installing software](./dbcAmplicons_installing_software.md) and [dbcAmplicons commands](./dbcAmplicons_commands.md) has been completed.
+
+**IF** for some reason it didn't finish, is corrupted or you missed the session, please say something
+
+Lets login and request an interactive session on the clusters
+
+	cd /share/workshop/$USER/mca_example
+  srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
+
+
 **1\.** First lets validate our install and environment
 
 Change directory into the workshops space
@@ -49,34 +59,34 @@ Run all reads
 
 	dbcAmplicons join -h
 
-	dbcAmplicons join -t 2 -O Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3 -1 Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3_R1.fastq.gz > join-16sV1V3.log
+	dbcAmplicons join -t 4 -O Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3 -1 Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3_R1.fastq.gz > join-16sV1V3.log
 	cat join-16sV1V3.log
 
-	dbcAmplicons join -t 2 -O Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5 -1 Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5_R1.fastq.gz > join-16sV4V5.log
+	dbcAmplicons join -t 4 -O Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5 -1 Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5_R1.fastq.gz > join-16sV4V5.log
 	cat join-16sV4V5.log
 
-	dbcAmplicons join -t 2 -O Slashpile.intermediate/ITS1/Slashpile-ITS1 -1 Slashpile.intermediate/ITS1/Slashpile-ITS1_R1.fastq.gz  > join-ITS1.log
+	dbcAmplicons join -t 4 -O Slashpile.intermediate/ITS1/Slashpile-ITS1 -1 Slashpile.intermediate/ITS1/Slashpile-ITS1_R1.fastq.gz  > join-ITS1.log
 	cat join-ITS1.log
 
-	dbcAmplicons join -t 2 -O Slashpile.intermediate/ITS2/Slashpile-ITS2 -1 Slashpile.intermediate/ITS2/Slashpile-ITS2_R1.fastq.gz  > join-ITS2.log
+	dbcAmplicons join -t 4 -O Slashpile.intermediate/ITS2/Slashpile-ITS2 -1 Slashpile.intermediate/ITS2/Slashpile-ITS2_R1.fastq.gz  > join-ITS2.log
 	cat join-ITS2.log
 
-	dbcAmplicons join -t 2 -O Slashpile.intermediate/LSU/Slashpile-LSU -1 Slashpile.intermediate/LSU/Slashpile-LSU_R1.fastq.gz > join-LSU.log
+	dbcAmplicons join -t 4 -O Slashpile.intermediate/LSU/Slashpile-LSU -1 Slashpile.intermediate/LSU/Slashpile-LSU_R1.fastq.gz > join-LSU.log
 	cat join-LSU.log
 
 **4\.** Classify the merged reads using RDP
 
 	dbcAmplicons classify -h
 
-	dbcAmplicons classify -p 2 --gene 16srrna -U Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3.extendedFrags.fastq.gz -O Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3
+	dbcAmplicons classify -p 4 --gene 16srrna -U Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3.extendedFrags.fastq.gz -O Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3
 
-	dbcAmplicons classify -p 2 --gene 16srrna -U Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5.extendedFrags.fastq.gz -O Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5
+	dbcAmplicons classify -p 4 --gene 16srrna -U Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5.extendedFrags.fastq.gz -O Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5
 
-	dbcAmplicons classify -p 2 --gene fungalits_unite -U Slashpile.intermediate/ITS1/Slashpile-ITS1.extendedFrags.fastq.gz -O Slashpile.intermediate/ITS1/Slashpile-ITS1
+	dbcAmplicons classify -p 4 --gene fungalits_unite -U Slashpile.intermediate/ITS1/Slashpile-ITS1.extendedFrags.fastq.gz -O Slashpile.intermediate/ITS1/Slashpile-ITS1
 
-	dbcAmplicons classify -p 2 --gene fungalits_unite -U Slashpile.intermediate/ITS2/Slashpile-ITS2.extendedFrags.fastq.gz -O Slashpile.intermediate/ITS2/Slashpile-ITS2
+	dbcAmplicons classify -p 4 --gene fungalits_unite -U Slashpile.intermediate/ITS2/Slashpile-ITS2.extendedFrags.fastq.gz -O Slashpile.intermediate/ITS2/Slashpile-ITS2
 
-	dbcAmplicons classify -p 2 --gene fungallsu -1 Slashpile.intermediate/LSU/Slashpile-LSU.notCombined_1.fastq.gz -2 Slashpile.intermediate/LSU/Slashpile-LSU.notCombined_2.fastq.gz -O Slashpile.intermediate/LSU/Slashpile-LSU
+	dbcAmplicons classify -p 4 --gene fungallsu -1 Slashpile.intermediate/LSU/Slashpile-LSU.notCombined_1.fastq.gz -2 Slashpile.intermediate/LSU/Slashpile-LSU.notCombined_2.fastq.gz -O Slashpile.intermediate/LSU/Slashpile-LSU
 
 ---
 
