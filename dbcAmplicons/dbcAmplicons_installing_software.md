@@ -66,7 +66,6 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 **4\.b** Install the **Ribosomal Database Project** (RDP) into src
 
-
   module load java/jdk1.8 # Need the java jdk1.8 loaded
 	cd /share/workshop/$USER/mca_example/src
 	git clone https://github.com/rdpstaff/RDPTools.git
@@ -80,7 +79,7 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 	java -jar classifier.jar classify
 	# this should give you a "Command Error" because you didn\'t specify output
 	# ... but it should give you a list of options
-	# feel free to move on if the 'make' fails due to data.tgz file, we can fix this later
+	# feel free to move on if the 'make' fails due to data.tgz file, we can fix this later 
 
 **4\.c** Add the location of classifier.jar as a variable in our \.bash_profile
 
