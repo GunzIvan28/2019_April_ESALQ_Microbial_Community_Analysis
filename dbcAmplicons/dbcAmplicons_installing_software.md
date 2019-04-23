@@ -86,8 +86,8 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 using your favorite text editor, (nano?), add the lines
 
-  module load java/jdk1.8
-  export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools
+module load java/jdk1.8
+export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools
 
 to ~/\.bash_profile, then source it
 
@@ -97,9 +97,8 @@ to ~/\.bash_profile, then source it
 
 **5\.a** Setup a python virtual environment for dbcAmplicons, in the src directory. You may need to first install virtualenv and pip, pip can be installed following instructions from here [pip](https://pip.pypa.io/en/stable/installing/) and then:
 
-
-  module load anaconda2
-  #cd /share/workshop/$USER/mca_example/src
+	module load anaconda2
+	#cd /share/workshop/$USER/mca_example/src
 	#pip install virtualenv
 
 If you already have pip, or having installed it using above, then
