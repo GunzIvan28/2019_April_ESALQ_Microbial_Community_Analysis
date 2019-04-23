@@ -66,8 +66,8 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 **4\.b** Install the **Ribosomal Database Project** (RDP) into src
 
-  module load java/jdk1.8 # Need the java jdk1.8 loaded
 
+  module load java/jdk1.8 # Need the java jdk1.8 loaded
 	cd /share/workshop/$USER/mca_example/src
 	git clone https://github.com/rdpstaff/RDPTools.git
 	cd RDPTools/
@@ -98,9 +98,10 @@ to ~/\.bash_profile, then source it
 **5\.a** Setup a python virtual environment for dbcAmplicons, in the src directory. You may need to first install virtualenv and pip, pip can be installed following instructions from here [pip](https://pip.pypa.io/en/stable/installing/) and then:
 
 
-  module load anaconda2
-  #cd /share/workshop/$USER/mca_example/src
-	#pip install virtualenv
+    module load anaconda2
+    #cd /share/workshop/$USER/mca_example/src
+    #pip install virtualenv
+
 
 If you already have pip, or having installed it using above, then
 
@@ -138,7 +139,7 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 You could also test the dbcAmplicons installation by running the script, test_dbAmplicons.sh, under the tests folder (in dbcAmplicions).
 
   cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
-  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes 
+  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
 
 ---
 
