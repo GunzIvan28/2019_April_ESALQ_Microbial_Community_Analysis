@@ -105,8 +105,6 @@ If you already have pip, or having installed it using above, then
 
 	cd /share/workshop/$USER/mca_example/src
 	virtualenv dbcA_virtualenv
-	easy_install pip
-	pip install biom_format
 
 **5\.b** This lets you set the virtual environment to activate on login by adding it to our \.bash_profile
 
@@ -126,6 +124,8 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 **6\.** Install **dbcAmplicons**
 
 	cd /share/workshop/$USER/mca_example/src
+  easy_install pip
+  pip install biom_format
 	git clone https://github.com/msettles/dbcAmplicons.git
 	cd /share/workshop/$USER/mca_example/src/dbcAmplicons/
 	python setup.py install
