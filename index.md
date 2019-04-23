@@ -16,18 +16,18 @@ title: April 2019 Microbial Community Analysis Workshop Home
 
 [Experimental Design and Cost Estimation](pdfs/MCA_Experimental_Design.pdf) (talk)
 
-### dataset metadata
-* [sample submission](metadata/slashpilesamplesheet.xlsx)
-* [barcode table](metadata/dbcBarcodeLookupTable.txt)
-* [primer table](metadata/PrimerTable.txt)
-* [sample sheet](metadata/workshopSamplesheet.txt)
-
 ### dbcAmplicons
 * [Installing Software](dbcAmplicons/dbcAmplicons_installing_software.md)
 * [dbcAmplicons: Amplicons](dbcAmplicons/dbcAmplicons_Amplicons.pdf) (talk)
 * [dbcAmplicons: Bioinformatics](dbcAmplicons/dbcAmplicons_Bioinformatics.pdf) (talk)
 * [dbcAmplicons: Data processing, 16S V1-V3](dbcAmplicons/dbcAmplicons_commands.md)
 * [dbcAmplicons: Data processing, other amplicons](dbcAmplicons/dbcAmplicons_commands_all_amplicons.md)
+
+### dataset metadata
+* [sample submission](metadata/slashpilesamplesheet.xlsx)
+* [barcode table](metadata/dbcBarcodeLookupTable.txt)
+* [primer table](metadata/PrimerTable.txt)
+* [sample sheet](metadata/workshopSamplesheet.txt)
 
 ## Intro to R and Rstudio
 * [Getting Started](intro2R/RStudio.md)

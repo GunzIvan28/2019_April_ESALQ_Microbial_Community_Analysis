@@ -9,7 +9,7 @@ This document assumes [dbcAmplicons installing software](./dbcAmplicons_installi
 Lets login and request an interactive session on the clusters
 
 	cd /share/workshop/$USER/mca_example
-  srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
+	srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
 
 The goal is to process raw Illumina sequence reads to abundance tables for the 16sV1-V3 amplicon set. To do so we first need to
 
