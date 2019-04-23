@@ -71,7 +71,7 @@ Generally, we do not use any options for sbatch ... we typically give it a scrip
 begin=`date +%s`
 echo $HOSTNAME
 
-# Sleep for 60 seconds
+# Sleep for 300 seconds
 sleep 300
 
 # getting end time to calculate time elapsed
@@ -100,7 +100,7 @@ After finishing you will see two new files in the directory stdout.out and stder
 
 Looking at the help documentation, we see that we can filter the results based on a number of criteria. The most useful option is "-u", which you can use to see just the jobs for a particular user ID. The first column gives you the job ID of the job, the second is the partition (different queues for different types of machines), the name of the job, the user who ran the job, the state of the job (R is for running), the length of time the job has been running, the number of nodes the job is using, and finally, the node name where the job is running or a reason why the job is waiting.
 
-    squeue -u username
+    squeue -u $USER
 
 ```
 msettles@tadpole:/share/workshop/msettles/cli$ squeue -u msettles

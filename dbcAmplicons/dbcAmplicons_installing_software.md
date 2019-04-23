@@ -84,9 +84,10 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 **4\.c** Add the location of classifier.jar as a variable in our \.bash_profile
 
-using your favorite text editor, (nano?), add the line
+using your favorite text editor, (nano?), add the lines
 
-	export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools
+  module load java/jdk1.8
+  export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools
 
 to ~/\.bash_profile, then source it
 
@@ -97,19 +98,22 @@ to ~/\.bash_profile, then source it
 **5\.a** Setup a python virtual environment for dbcAmplicons, in the src directory. You may need to first install virtualenv and pip, pip can be installed following instructions from here [pip](https://pip.pypa.io/en/stable/installing/) and then:
 
 
-  cd /share/workshop/$USER/mca_example/src
-	pip install virtualenv
+  module load anaconda2
+  #cd /share/workshop/$USER/mca_example/src
+	#pip install virtualenv
 
 If you already have pip, or having installed it using above, then
 
 	cd /share/workshop/$USER/mca_example/src
 	virtualenv dbcA_virtualenv
-
+  easy_install pip
+  pip install biom_format
 
 **5\.b** This lets you set the virtual environment to activate on login by adding it to our \.bash_profile
 
 using your favorite text editor, _nano_ is simple, add the lines
 
+  module load anaconda2
 	source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate
 
 to a file named ~/\.bash_profile, then source it
@@ -123,7 +127,6 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 **6\.** Install **dbcAmplicons**
 
 	cd /share/workshop/$USER/mca_example/src
-	pip install biom-format
 	git clone https://github.com/msettles/dbcAmplicons.git
 	cd /share/workshop/$USER/mca_example/src/dbcAmplicons/
 	python setup.py install
@@ -135,7 +138,7 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 You could also test the dbcAmplicons installation by running the script, test_dbAmplicons.sh, under the tests folder (in dbcAmplicions).
 
   cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
-  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
+  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes 
 
 ---
 
@@ -168,7 +171,9 @@ If for some reason installation failed let me know and we'll get things fixed
 These lines should be in your .bash_profile
 
   export PATH=/share/workshop/$USER/mca_example/bin:$PATH  
+  module load java/jdk1.8
   export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools  
+  module load anaconda2
   source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate  
 
 ---

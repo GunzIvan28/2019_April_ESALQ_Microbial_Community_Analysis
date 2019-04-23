@@ -4,7 +4,14 @@ Running the dbcAmplicons pipeline
 
 This document assumes [dbcAmplicons installing software](./dbcAmplicons_installing_software.md) has been completed.
 
-**IF** for some reason it didn't finish, is corrupted or you missed the session, please say something
+**IF** for some reason it didn't finish, is corrupted or you missed the session, you can use my instance. In your ~/.bash_profile edit the lines to use my folders
+
+	export PATH=/share/workshop/msettles/mca_example/bin:$PATH  
+	module load java/jdk1.8
+	export RDP_PATH=/share/workshop/msettles/mca_example/src/RDPTools  
+	module load anaconda2
+	source /share/workshop/msettles/mca_example/src/dbcA_virtualenv/bin/activate  
+
 
 Lets login and request an interactive session on the clusters
 
