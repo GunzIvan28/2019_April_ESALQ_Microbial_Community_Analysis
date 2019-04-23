@@ -138,8 +138,9 @@ You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 
 You could also test the dbcAmplicons installation by running the script, test_dbAmplicons.sh, under the tests folder (in dbcAmplicions).
 
-  cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
-  ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
+
+    cd /share/workshop/$USER/mca_example/src/dbcAmplicons/tests/
+    ./test_dbAmplicons.sh  # could show some ERRORs / WARNINGs, but otherwise give stats after a few minutes
 
 ---
 
