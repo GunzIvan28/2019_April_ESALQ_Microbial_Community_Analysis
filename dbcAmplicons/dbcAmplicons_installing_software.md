@@ -49,12 +49,11 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 
 	cd /share/workshop/$USER/mca_example/src
 	git clone https://github.com/dstreett/FLASH2.git
-	cd /share/workshop/$USER/FLASH2/
+	cd FLASH2
 	make
 	ln -s /share/workshop/$USER/mca_example/src/FLASH2/flash2 /share/workshop/$USER/mca_example/bin/.
 	# test installation, should see help documentation
 	flash2 -h
-	cd ..
 
 ---
 
@@ -66,6 +65,8 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 	ln -s /share/workshop/$USER/mca_example/src/apache-ant-1.10.5/bin/ant /share/workshop/$USER/mca_example/bin/.
 
 **4\.b** Install the **Ribosomal Database Project** (RDP) into src
+
+  module load java/jdk1.8 # Need the java jdk1.8 loaded
 
 	cd /share/workshop/$USER/mca_example/src
 	git clone https://github.com/rdpstaff/RDPTools.git
