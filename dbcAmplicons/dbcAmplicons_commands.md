@@ -19,7 +19,7 @@ Lets login and request an interactive session on the clusters
 
 After getting onto a cluster node,
 
-  source /share/workshop/$USER/mca_example/src/dbcA_profile
+	source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 The goal is to process raw Illumina sequence reads to abundance tables for the 16sV1-V3 amplicon set. To do so we first need to
 
