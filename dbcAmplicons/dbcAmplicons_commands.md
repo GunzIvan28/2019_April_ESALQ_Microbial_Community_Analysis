@@ -18,6 +18,16 @@ Lets login and request an interactive session on the clusters
 	cd /share/workshop/$USER/mca_example
 	srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
 
+Because, when working on the cluster, we don't have access to our home directories we have to run the commands to make our application accessible.
+
+	export PATH=/share/workshop/msettles/mca_example/bin:$PATH  
+	module load java/jdk1.8
+	export RDP_PATH=/share/workshop/msettles/mca_example/src/RDPTools  
+	module load anaconda2
+	source /share/workshop/msettles/mca_example/src/dbcA_virtualenv/bin/activate  
+	export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src
+
+
 The goal is to process raw Illumina sequence reads to abundance tables for the 16sV1-V3 amplicon set. To do so we first need to
 
 1. have all the software installed and working, and
@@ -63,10 +73,6 @@ We can pull down the already prepared barcode and primer tables from github
 	wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/metadata/dbcBarcodeLookupTable.txt
 	wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/metadata/PrimerTable.txt
 	wget https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/metadata/workshopSamplesheet.txt
-
-Once all the metadata tables are in the metadata folder, lets go back to the main workshop folder
-
-	cd /share/workshop/$USER/mca_example
 
 If all this is correct, we are ready to begin.
 
