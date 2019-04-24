@@ -99,4 +99,4 @@ output:
 
 We will recreate some of the plots generated with plot-bamstats on the same file
 
-You can view the output of plot-bamstats -> <https://rawgit.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/intro2R/Data_in_R_files/bwa_mem_Stats/bwa_mem_Stats.html>
+You can view the output of plot-bamstats -> <https://rawcdn.githack.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/intro2R/Data_in_R_files/bwa_mem_Stats/bwa_mem_Stats.html>
