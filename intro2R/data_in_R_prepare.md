@@ -55,13 +55,13 @@ library(reshape2)
 ```
 
 ```
-## 
+##
 ## Attaching package: 'reshape2'
 ```
 
 ```
 ## The following object is masked from 'package:tidyr':
-## 
+##
 ##     smiths
 ```
 
@@ -73,13 +73,13 @@ library(gridExtra)
 ```
 
 ```
-## 
+##
 ## Attaching package: 'gridExtra'
 ```
 
 ```
 ## The following object is masked from 'package:dplyr':
-## 
+##
 ##     combine
 ```
 
