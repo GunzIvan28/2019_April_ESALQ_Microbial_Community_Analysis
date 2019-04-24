@@ -33,15 +33,13 @@ and two other directors
 	mkdir /share/workshop/$USER/mca_example/src
 	mkdir /share/workshop/$USER/mca_example/bin
 
-**2\.** Now lets add the new bin directory to our PATH in a \.bash_profile file
+**2\.** Now lets add the new bin directory to our PATH in a dbcA_profile file
 
-using your favorite text editor (e.g. using the 'nano' editor, type 'nano ~/.bash_profile' to open nano and immediately edit .bash_profile in your home directory) add the line
+	echo 'export PATH=/share/workshop/$USER/mca_example/bin:$PATH' > /share/workshop/$USER/mca_example/src/dbcA_profile
 
-export PATH=/share/workshop/$USER/mca_example/bin:$PATH  
+Then on the command line, execute the commands in the dbcA_profile file using source.
 
-to a file named \.bash_profile [node the leading \. as its a 'hidden' file], which may or may not already exist in your home directory. Then save and exit (e.g. using 'nano', type <control-O> to save, then <control-X> to exit). Then on the command line, execute the commands in your .bash_profile file (which normally only get executed when you log in).
-
-	source ~/.bash_profile
+	source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 ---
 
@@ -82,16 +80,15 @@ to a file named \.bash_profile [node the leading \. as its a 'hidden' file], whi
 	# ... but it should give you a list of options
 	# feel free to move on if the 'make' fails due to data.tgz file, we can fix this later
 
-**4\.c** Add the location of classifier.jar as a variable in our \.bash_profile
+**4\.c** Add the location of classifier.jar as a variable in our dbcA_profile file,
 
-using your favorite text editor, (nano?), add the lines
 
-module load java/jdk1.8  
-export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools  
+	echo 'module load java/jdk1.8' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+  echo 'export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools' >> /share/workshop/$USER/mca_example/src/dbcA_profile
 
-to ~/\.bash_profile, then source it
+Then on the command line, execute the commands in the dbcA_profile file using source.
 
-	source ~/.bash_profile  # runs the commands right away, instead of at next login
+	source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 ---
 
@@ -106,16 +103,15 @@ If you already have pip, or having installed it using above, then
 	cd /share/workshop/$USER/mca_example/src
 	virtualenv dbcA_virtualenv
 
-**5\.b** This lets you set the virtual environment to activate on login by adding it to our \.bash_profile
+**5\.b** This lets you set the virtual environment to activate on login by adding it to our dbcA_profile file.
 
-using your favorite text editor, _nano_ is simple, add the lines
+	echo 'module load anaconda2' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+  echo 'source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+  echo 'export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src' >> /share/workshop/$USER/mca_example/src/dbcA_profile
 
-module load anaconda2  
-source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate  
+Then on the command line, execute the commands in the dbcA_profile file using source.
 
-to a file named ~/\.bash_profile, then source it
-
-	source ~/.bash_profile
+	source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 You should now see the text "(dbcA_virtualenv)" at the beginning of your prompt.
 
@@ -167,15 +163,20 @@ We usually save the output of this in the project file to remind ourselves which
 
 If for some reason installation failed let me know and we'll get things fixed
 
-These lines should be in your .bash_profile
+These lines should be in your dbcA_profile
 
 export PATH=/share/workshop/$USER/mca_example/bin:$PATH  
 module load java/jdk1.8  
 export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools  
 module load anaconda2  
 source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate  
+export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src  
 
 ---
+
+At any time you can initiate the environment for dbcAmplicons using.
+
+  source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 **7\.** Last lets copy the workshop data into our home directory.
 

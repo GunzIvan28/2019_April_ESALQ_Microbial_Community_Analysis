@@ -1,7 +1,6 @@
 Running the dbcAmplicons pipeline
 ===============================================
 
-
 This document assumes [dbcAmplicons installing software](./dbcAmplicons_installing_software.md) has been completed.
 
 **IF** for some reason it didn't finish, is corrupted or you missed the session, you can use my instance. In your ~/.bash_profile edit the lines to use my folders
@@ -11,22 +10,16 @@ This document assumes [dbcAmplicons installing software](./dbcAmplicons_installi
 	export RDP_PATH=/share/workshop/msettles/mca_example/src/RDPTools  
 	module load anaconda2
 	source /share/workshop/msettles/mca_example/src/dbcA_virtualenv/bin/activate  
-
+	export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src  
 
 Lets login and request an interactive session on the clusters
 
 	cd /share/workshop/$USER/mca_example
 	srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
 
-Because, when working on the cluster, we don't have access to our home directories we have to run the commands to make our application accessible.
+After getting onto a cluster node,
 
-	export PATH=/share/workshop/msettles/mca_example/bin:$PATH  
-	module load java/jdk1.8
-	export RDP_PATH=/share/workshop/msettles/mca_example/src/RDPTools  
-	module load anaconda2
-	source /share/workshop/msettles/mca_example/src/dbcA_virtualenv/bin/activate  
-	export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src
-
+  source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 The goal is to process raw Illumina sequence reads to abundance tables for the 16sV1-V3 amplicon set. To do so we first need to
 
@@ -160,11 +153,11 @@ During the next week try running classify on the original preprocessed reads, sk
 
 Lets make a new folder for the final output results.
 
+	cd /share/workshop/$USER/mca_example
 	mkdir Slashpile.results
 
 View the help documentation and generate the results. When you provide dbcAmplicons abundance with a sample sheet it will include any additional metadata (extra columns added to the sample sheet) into the biom file for downstream processing.
 
-	cd /share/workshop/$USER/mca_example
 	dbcAmplicons abundance -h
 
 	dbcAmplicons abundance -S metadata/workshopSamplesheet.txt -O Slashpile.results/16sV1V3 -F Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3.fixrank --biom > abundance.16sV1V3.log

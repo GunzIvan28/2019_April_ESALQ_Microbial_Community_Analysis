@@ -3,13 +3,23 @@ Running the dbcAmplicons pipeline
 
 This document assumes [dbcAmplicons installing software](./dbcAmplicons_installing_software.md) and [dbcAmplicons commands](./dbcAmplicons_commands.md) has been completed.
 
-**IF** for some reason it didn't finish, is corrupted or you missed the session, please say something
+**IF** for some reason it didn't finish, is corrupted or you missed the session, you can use my instance. In your ~/.bash_profile edit the lines to use my folders
+
+	export PATH=/share/workshop/msettles/mca_example/bin:$PATH  
+	module load java/jdk1.8
+	export RDP_PATH=/share/workshop/msettles/mca_example/src/RDPTools  
+	module load anaconda2
+	source /share/workshop/msettles/mca_example/src/dbcA_virtualenv/bin/activate  
+	export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src  
 
 Lets login and request an interactive session on the clusters
 
 	cd /share/workshop/$USER/mca_example
-  srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
+	srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
 
+After getting onto a cluster node,
+
+  source /share/workshop/$USER/mca_example/src/dbcA_profile
 
 **1\.** First lets validate our install and environment
 
