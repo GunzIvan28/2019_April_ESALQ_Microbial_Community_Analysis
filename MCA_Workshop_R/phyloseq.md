@@ -53,6 +53,12 @@ library(vegan)
 ## This is vegan 2.5-4
 ```
 
+Can choose to download my finished product
+
+```r
+download.file("https://raw.githubusercontent.com/ucdavis-bioinformatics-training/2019_April_ESALQ_Microbial_Community_Analysis/master/MCA_Workshop_R/16sV1V3.biom", "16sV1V3.biom")
+```
+
 ## Read in the dataset, biom file generated from dbcAmplicons pipeline
 
 First read in the dataset, see what the objects look like. Our Biom file, produces 3 tables: otu_table, taxa_table, sample_data. Look at the head of each. Get the sample names and tax ranks, finally view the phyloseq object. Lets draw a first bar plot.
@@ -687,41 +693,39 @@ v4.hell.ord <- ordinate(s16sV1V3.4hell_trim, "NMDS", "bray")
 
 ```
 ## Run 0 stress 0.08559272 
-## Run 1 stress 0.1351833 
-## Run 2 stress 0.08535072 
+## Run 1 stress 0.08535039 
 ## ... New best solution
-## ... Procrustes: rmse 0.01845187  max resid 0.0753405 
-## Run 3 stress 0.09460819 
-## Run 4 stress 0.08535037 
+## ... Procrustes: rmse 0.01843636  max resid 0.07535758 
+## Run 2 stress 0.08535037 
 ## ... New best solution
-## ... Procrustes: rmse 0.0001403396  max resid 0.0004813795 
+## ... Procrustes: rmse 2.181919e-05  max resid 5.813325e-05 
 ## ... Similar to previous best
-## Run 5 stress 0.1288898 
-## Run 6 stress 0.1143825 
-## Run 7 stress 0.08535038 
-## ... Procrustes: rmse 2.785473e-05  max resid 9.668707e-05 
+## Run 3 stress 0.08559275 
+## ... Procrustes: rmse 0.01846616  max resid 0.07530277 
+## Run 4 stress 0.140899 
+## Run 5 stress 0.1116961 
+## Run 6 stress 0.09305888 
+## Run 7 stress 0.134704 
+## Run 8 stress 0.1311039 
+## Run 9 stress 0.09305888 
+## Run 10 stress 0.08559272 
+## ... Procrustes: rmse 0.01842457  max resid 0.07512587 
+## Run 11 stress 0.08535045 
+## ... Procrustes: rmse 8.778733e-05  max resid 0.0002784911 
 ## ... Similar to previous best
-## Run 8 stress 0.0855928 
-## ... Procrustes: rmse 0.01849509  max resid 0.0754549 
-## Run 9 stress 0.1123378 
-## Run 10 stress 0.09460841 
-## Run 11 stress 0.08535037 
-## ... Procrustes: rmse 5.754691e-06  max resid 1.886131e-05 
+## Run 12 stress 0.1383756 
+## Run 13 stress 0.09460815 
+## Run 14 stress 0.09460814 
+## Run 15 stress 0.09305894 
+## Run 16 stress 0.08559273 
+## ... Procrustes: rmse 0.01845903  max resid 0.07527201 
+## Run 17 stress 0.0930591 
+## Run 18 stress 0.1116947 
+## Run 19 stress 0.08559272 
+## ... Procrustes: rmse 0.01844961  max resid 0.07523289 
+## Run 20 stress 0.08535039 
+## ... Procrustes: rmse 1.425755e-05  max resid 4.18764e-05 
 ## ... Similar to previous best
-## Run 12 stress 0.08535038 
-## ... Procrustes: rmse 1.768011e-05  max resid 5.88227e-05 
-## ... Similar to previous best
-## Run 13 stress 0.08559272 
-## ... Procrustes: rmse 0.01843585  max resid 0.07519362 
-## Run 14 stress 0.08559273 
-## ... Procrustes: rmse 0.01844933  max resid 0.0752519 
-## Run 15 stress 0.1143878 
-## Run 16 stress 0.08559368 
-## ... Procrustes: rmse 0.01822172  max resid 0.07421008 
-## Run 17 stress 0.1305362 
-## Run 18 stress 0.09460805 
-## Run 19 stress 0.09460833 
-## Run 20 stress 0.09305966 
 ## *** Solution reached
 ```
 
