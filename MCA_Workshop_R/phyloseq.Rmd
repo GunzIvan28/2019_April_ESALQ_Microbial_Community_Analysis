@@ -1,9 +1,9 @@
 ---
-title: "Microbial Community Analysis workshop"
+title: "Prepare Differential Expression"
+author: "Bioinformatics Core"
 output:
     html_document:
       keep_md: TRUE
-    pdf_document: default
 ---
 
 # Using the Phyloseq package
@@ -45,8 +45,7 @@ library(vegan)
 First read in the dataset, see what the objects look like. Our Biom file, produces 3 tables: otu_table, taxa_table, sample_data. Look at the head of each. Get the sample names and tax ranks, finally view the phyloseq object. Lets draw a first bar plot.
 
 
-```{r}
-slashpile_16sV1V3 <- "../16sV1V3.biom"
+```{r readbiom, fig.width=600, fig.height=400}
 s16sV1V3 = import_biom(BIOMfilename = "16sV1V3.biom", parseFunction = parse_taxonomy_default)
 
 # this changes the columns names to kingdon through genus
@@ -67,7 +66,7 @@ plot_bar(s16sV1V3, fill = "Phylum") + theme(legend.position="bottom")
 ## Filtering our dataset
 
 Lets generate a prevelance table (number of samples each taxa occurs in) for each taxa.
-```{r}
+```{r fig.width=600}
 prevelancedf = apply(X = otu_table(s16sV1V3),
                  MARGIN = 1,
                  FUN = function(x){sum(x > 0)})
@@ -84,21 +83,21 @@ prevelancedf[1:10,]
 
 First lets remove of the feature with ambiguous phylum annotation.
 
-```{r}
+```{r fig.width=600}
 s16sV1V3.1 <- subset_taxa(s16sV1V3, !is.na(Phylum) & !Phylum %in% c("", "uncharacterized"))
 s16sV1V3.1
 ```
 
 Now lets investigate low prevelance/abundance phylum and subset them out.
 
-```{r}
+```{r fig.width=600}
 plyr::ddply(prevelancedf, "Phylum", function(df1){
   data.frame(mean_prevalence=mean(df1$Prevalence),total_abundance=sum(df1$TotalAbundance,na.rm = T),stringsAsFactors = F)
   })
 ```
 
 Using the table above, determine the phyla to filter
-```{r}
+```{r fig.width=600}
 phyla2Filter = c("p__Aquificae", "p__candidate division ZB3", "p__Crenarchaeota",
                  "p__Deinococcus-Thermus","p__Omnitrophica","p__Tenericutes",
                  "p__Thermodesulfobacteria")
@@ -110,7 +109,7 @@ s16sV1V3.1
 ### Individual Taxa Filtering
 
 Subset to the remaining phyla by prevelance.
-```{r}
+```{r fig.width=600}
 prevelancedf1 = subset(prevelancedf, Phylum %in% get_taxa_unique(s16sV1V3.1, taxonomic.rank = "Phylum"))
 ggplot(prevelancedf1, aes(TotalAbundance,Prevalence / nsamples(s16sV1V3.1),color=Phylum)) +
   # Include a guess for parameter
@@ -120,7 +119,7 @@ ggplot(prevelancedf1, aes(TotalAbundance,Prevalence / nsamples(s16sV1V3.1),color
 ```
 
 Sometimes you see a clear break, however we aren't seeing one here. In this case I'm moslty interested in those organisms consistantly present in the dataset, so I'm removing all taxa present in less than 50% of samples.
-```{r}
+```{r fig.width=600}
 #  Define prevalence threshold as 50% of total samples
 prevalenceThreshold = 0.50 * nsamples(s16sV1V3.1)
 prevalenceThreshold
@@ -133,7 +132,7 @@ s16sV1V3.2
 ```
 
 Agglomerate taxa at the Genus level (combine all with the same name) and remove all taxa without genus level assignment
-```{r}
+```{r fig.width=600}
 length(get_taxa_unique(s16sV1V3.2, taxonomic.rank = "Genus"))
 s16sV1V3.3 = tax_glom(s16sV1V3.2, "Genus", NArm = TRUE)
 s16sV1V3.3
@@ -145,7 +144,7 @@ sum(colSums(otu_table(s16sV1V3.3)))
 ## Now lets filter out samples (outliers and low performing samples)
 
 Do some simple ordination looking for outlier samples, first we variance stabilize the data with a log transform, the perform PCoA using bray's distances
-```{r}
+```{r fig.width=600}
 logt  = transform_sample_counts(s16sV1V3.3, function(x) log(1 + x) )
 out.pcoa.logt <- ordinate(logt, method = "PCoA", distance = "bray")
 evals <- out.pcoa.logt$values$Eigenvalues
@@ -160,7 +159,7 @@ out.pcoa.logt$vectors[,1:2]
 
 You could also use the MDS method of ordination here, edit the code to do so. Can also edit the distance method used to jaccard, jsd, euclidean. Play with changing those parameters
 
-```{r, eval=FALSE}
+```{r, eval=FALSE,fig.width=600}
 #Can view the distance method options with
 ?distanceMethodList
 
@@ -169,7 +168,7 @@ You could also use the MDS method of ordination here, edit the code to do so. Ca
 ```
 
 Show taxa proportions per sample
-```{r}
+```{r fig.width=600}
 grid.arrange(nrow = 3,
 qplot(as(otu_table(logt),"matrix")[, "Slashpile18"], geom = "histogram", bins=30) +
   xlab("Relative abundance"),
@@ -185,7 +184,7 @@ qplot(as(otu_table(logt),"matrix")[, "Slashpile11"], geom = "histogram", bins=30
 ```
 
 Look for low perfroming samples
-```{r}
+```{r fig.width=600}
 qplot(colSums(otu_table(s16sV1V3.3)),bins=30) +
   xlab("Logged counts-per-sample")
 s16sV1V3.4 <- prune_samples(sample_sums(s16sV1V3.3)>=10000, s16sV1V3.3)
@@ -193,7 +192,7 @@ s16sV1V3.4
 ```
 
 Investigate transformations. We transform microbiome count data to account for differences in library size, variance, scale, etc.
-```{r}
+```{r fig.width=600}
 ## for Firmictures
 plot_abundance = function(physeq, meta, title = "",
 			     Facet = "Order", Color = "Order"){
@@ -243,10 +242,10 @@ title = "plot_bar; Acidobacteria-only"
 plot_bar(s16sV1V3.4hell_acidob, "Slash_pile_number", "Abundance", "Family", title=title)
 
 prop  = transform_sample_counts(s16sV1V3.4, function(x) x / sum(x) )
-
 keepTaxa <- ((apply(otu_table(prop) >= 0.005,1,sum,na.rm=TRUE) > 2) | (apply(otu_table(prop) >= 0.05, 1, sum,na.rm=TRUE) > 0))
 table(keepTaxa)
 s16sV1V3.4hell_trim <- prune_taxa(keepTaxa,s16sV1V3.4hell)
+
 plot_heatmap(s16sV1V3.4hell_trim, "PCoA", distance="bray", sample.label="Slash_pile_number", taxa.label="Genus", low="#FFFFCC", high="#000033", na.value="white")
 
 plot_net(s16sV1V3.4hell_trim, maxdist=0.4, color="Slash_pile_number", shape="Depth_cm")
