@@ -36,8 +36,6 @@ The goal is to process raw Illumina sequence reads to abundance tables for the 1
 
 Today we'll process at least one amplicon set to completion, should there be extra time, begin processing the others, or later you can process the others as practice.
 
-**1\.** First lets validate our install and environment
-
 Change directory into the workshops space
 
 	cd /share/workshop/$USER/mca_example
