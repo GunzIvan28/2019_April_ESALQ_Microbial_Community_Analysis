@@ -84,7 +84,7 @@ Then on the command line, execute the commands in the dbcA_profile file using so
 
 
 	echo 'module load java/jdk1.8' >> /share/workshop/$USER/mca_example/src/dbcA_profile
-  echo 'export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+	echo 'export RDP_PATH=/share/workshop/$USER/mca_example/src/RDPTools' >> /share/workshop/$USER/mca_example/src/dbcA_profile
 
 Then on the command line, execute the commands in the dbcA_profile file using source.
 
