@@ -182,6 +182,9 @@ At any time you can initiate the environment for dbcAmplicons using.
 
   cd  
   cd /share/workshop/$USER/mca_example  
-  cp -r /share/biocore/workshops/Workshop_MCA/Illumina_Reads .  
+  wget https://bioshare.bioinformatics.ucdavis.edu/bioshare/download/puznld0hwbxpb3c/Slashpile_only_R1.fastq.gz
+  wget https://bioshare.bioinformatics.ucdavis.edu/bioshare/download/puznld0hwbxpb3c/Slashpile_only_R2.fastq.gz
+  wget https://bioshare.bioinformatics.ucdavis.edu/bioshare/download/puznld0hwbxpb3c/Slashpile_only_R3.fastq.gz
+  wget https://bioshare.bioinformatics.ucdavis.edu/bioshare/download/puznld0hwbxpb3c/Slashpile_only_R4.fastq.gz
 
 Take a look at the files ... what is inside the Illumina_Reads folder?
