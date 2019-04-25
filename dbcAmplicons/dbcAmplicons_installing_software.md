@@ -106,8 +106,8 @@ If you already have pip, or having installed it using above, then
 **5\.b** This lets you set the virtual environment to activate on login by adding it to our dbcA_profile file.
 
 	echo 'module load anaconda2' >> /share/workshop/$USER/mca_example/src/dbcA_profile
-  echo 'source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate' >> /share/workshop/$USER/mca_example/src/dbcA_profile
-  echo 'export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+	echo 'source /share/workshop/$USER/mca_example/src/dbcA_virtualenv/bin/activate' >> /share/workshop/$USER/mca_example/src/dbcA_profile
+	echo 'export PYTHON_EGG_CACHE=/share/workshop/$USER/mca_example/src' >> /share/workshop/$USER/mca_example/src/dbcA_profile
 
 Then on the command line, execute the commands in the dbcA_profile file using source.
 
