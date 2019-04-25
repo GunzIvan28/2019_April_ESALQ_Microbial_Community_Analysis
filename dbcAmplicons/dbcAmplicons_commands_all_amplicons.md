@@ -17,7 +17,7 @@ Lets login and request an interactive session on the clusters
 	cd /share/workshop/$USER/mca_example
 	srun -t 08:00:00 -c 4 -n 1 --mem 8000 --account workshop --reservation workshop --pty /bin/bash
 
-After getting onto a cluster node,
+After getting onto a cluster node, lets initialize the environment we created.
 
   source /share/workshop/$USER/mca_example/src/dbcA_profile
 
@@ -125,3 +125,15 @@ Run all reads
 
 	splitReadsBySample.py -h
 	splitReadsBySample.py -O SplitBySample/16sV1V3 -1 Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3_R1.fastq.gz -2 Slashpile.intermediate/16sV1V3/Slashpile-16sV1V3_R2.fastq.gz
+
+	splitReadsBySample.py -h
+	splitReadsBySample.py -O SplitBySample/16sV4V5 -1 Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5_R1.fastq.gz -2 Slashpile.intermediate/16sV4V5/Slashpile-16sV4V5_R2.fastq.gz
+
+	splitReadsBySample.py -h
+	splitReadsBySample.py -O SplitBySample/ITS1 -1 Slashpile.intermediate/ITS1/Slashpile-ITS1_R1.fastq.gz -2 Slashpile.intermediate/ITS1/Slashpile-ITS1_R2.fastq.gz
+
+	splitReadsBySample.py -h
+	splitReadsBySample.py -O SplitBySample/ITS2 -1 Slashpile.intermediate/ITS2/Slashpile-ITS2_R1.fastq.gz -2 Slashpile.intermediate/ITS2/Slashpile-ITS2_R2.fastq.gz
+
+	splitReadsBySample.py -h
+	splitReadsBySample.py -O SplitBySample/LSU -1 Slashpile.intermediate/LSU/Slashpile-LSU_R1.fastq.gz -2 Slashpile.intermediate/LSU/Slashpile-LSU_R2.fastq.gz
